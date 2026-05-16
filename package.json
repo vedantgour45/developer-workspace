@@ -1,0 +1,23 @@
+{
+  "name": "developer-workspace-mfe",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "predev": "npm run build:all",
+    "dev": "concurrently -n host,board,docs,analytics -c blue,green,yellow,magenta \"npm run dev -w apps/host\" \"npm run dev -w apps/mfe-tasks\" \"npm run dev -w apps/mfe-notes\" \"npm run dev -w apps/mfe-profile\"",
+    "build:remotes": "npm run build -w apps/mfe-tasks && npm run build -w apps/mfe-notes && npm run build -w apps/mfe-profile",
+    "build:all": "npm run build:remotes && npm run build -w apps/host",
+    "build": "npm run build:all",
+    "preview": "concurrently -n host,board,docs,analytics -c blue,green,yellow,magenta \"npm run preview -w apps/host\" \"npm run preview -w apps/mfe-tasks\" \"npm run preview -w apps/mfe-notes\" \"npm run preview -w apps/mfe-profile\"",
+    "lint": "npm run lint -w apps/host -w apps/mfe-tasks -w apps/mfe-notes -w apps/mfe-profile"
+  },
+  "devDependencies": {
+    "@module-federation/vite": "^1.15.4",
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "agentation": "^3.0.2"
+  }
+}

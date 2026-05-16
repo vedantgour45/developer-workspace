@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #212121;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'CohereText', Inter, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.font-mono {
+  font-family: 'JetBrains Mono', 'CohereMono', ui-monospace, monospace;
+}
+
+*:focus-visible {
+  outline: 2px solid #4c6ee6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@keyframes dw-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ------------------------------------------------------------------ */
+/* Markdown preview styling — high specificity so cross-MFE Tailwind  */
+/* class rules can't override us. Use .dw-prose .x instead of just .x */
+/* ------------------------------------------------------------------ */
+.dw-prose {
+  color: #212121;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'Inter', '-apple-system', 'BlinkMacSystemFont', sans-serif;
+}
+.dw-prose > :first-child { margin-top: 0 !important; }
+.dw-prose > :last-child { margin-bottom: 0 !important; }
+
+.dw-prose h1,
+.dw-prose h2,
+.dw-prose h3,
+.dw-prose h4 {
+  font-family: 'Space Grotesk', 'CohereText', Inter, system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+  color: #212121 !important;
+  line-height: 1.2 !important;
+}
+.dw-prose h1 { font-size: 32px !important; margin: 0.4em 0 0.5em !important; }
+.dw-prose h2 { font-size: 24px !important; margin: 1.4em 0 0.4em !important; }
+.dw-prose h3 { font-size: 20px !important; margin: 1.3em 0 0.35em !important; }
+.dw-prose h4 { font-size: 17px !important; margin: 1.2em 0 0.3em !important; }
+.dw-prose p { margin: 0 0 1em !important; }
+.dw-prose ul,
+.dw-prose ol { margin: 0 0 1em 1.4em !important; padding: 0 !important; }
+.dw-prose li { margin: 0.25em 0 !important; }
+
+.dw-prose blockquote {
+  border-left: 3px solid #17171c !important;
+  background: #f7f7f5 !important;
+  margin: 1em 0 !important;
+  padding: 0.6em 1em !important;
+  color: #212121 !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+.dw-prose code:not(pre code) {
+  background: #f2f2f2 !important;
+  padding: 0.12em 0.4em !important;
+  border-radius: 4px !important;
+  font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+  font-size: 0.88em !important;
+  color: #212121 !important;
+}
+
+.dw-prose pre {
+  background: #17171c !important;
+  color: #ffffff !important;
+  padding: 18px 20px !important;
+  border-radius: 12px !important;
+  overflow-x: auto !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  margin: 1em 0 !important;
+}
+.dw-prose pre code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  font-size: 13px !important;
+}
+
+.dw-prose a {
+  color: #1863dc !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+.dw-prose hr {
+  border: 0 !important;
+  border-top: 1px solid #d9d9dd !important;
+  margin: 2em 0 !important;
+}
+.dw-prose strong {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+.dw-prose em {
+  font-style: italic !important;
+}
+.dw-prose s {
+  text-decoration: line-through;
+  color: #75758a;
+}
+.dw-prose table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin: 1em 0 !important;
+  font-size: 14px !important;
+}
+.dw-prose th,
+.dw-prose td {
+  border: 1px solid #d9d9dd !important;
+  padding: 8px 12px !important;
+  text-align: left !important;
+}
+.dw-prose th {
+  background: #eeece7 !important;
+  font-weight: 600 !important;
+  color: #212121 !important;
+}
+.dw-prose input[type='checkbox'] {
+  margin-right: 6px !important;
+  accent-color: #17171c !important;
+  cursor: pointer !important;
+  width: 14px !important;
+  height: 14px !important;
+}
+.dw-prose li.task-list-item,
+.dw-prose li:has(> input[type='checkbox']) {
+  list-style: none !important;
+  margin-left: -1.4em !important;
+  padding-left: 0 !important;
+}
+
+/* Callouts */
+.dw-prose .callout {
+  position: relative !important;
+  border-radius: 10px !important;
+  padding: 14px 16px 14px 44px !important;
+  margin: 1em 0 !important;
+  border: 1px solid !important;
+}
+.dw-prose .callout::before {
+  position: absolute !important;
+  left: 14px !important;
+  top: 14px !important;
+  width: 20px !important;
+  height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+.dw-prose .callout p { margin: 0 !important; }
+.dw-prose .callout p + p { margin-top: 0.6em !important; }
+.dw-prose .callout-info {
+  background: #f1f5ff !important;
+  border-color: rgba(76, 110, 230, 0.3) !important;
+  color: #1863dc !important;
+}
+.dw-prose .callout-info::before {
+  content: 'i' !important;
+  background: #1863dc !important;
+  color: white !important;
+  border-radius: 9999px !important;
+  font-style: italic !important;
+}
+.dw-prose .callout-warning {
+  background: rgba(255, 119, 89, 0.12) !important;
+  border-color: rgba(255, 119, 89, 0.35) !important;
+  color: #b03e25 !important;
+}
+.dw-prose .callout-warning::before {
+  content: '!' !important;
+  background: #ff7759 !important;
+  color: white !important;
+  border-radius: 9999px !important;
+}
+.dw-prose .callout-tip {
+  background: #edfce9 !important;
+  border-color: rgba(0, 60, 51, 0.3) !important;
+  color: #003c33 !important;
+}
+.dw-prose .callout-tip::before {
+  content: '★' !important;
+  color: #003c33 !important;
+  font-size: 16px !important;
+}
+.dw-prose .callout-note {
+  background: #f7f7f5 !important;
+  border-color: #d9d9dd !important;
+  color: #212121 !important;
+}
+.dw-prose .callout-note::before {
+  content: '◆' !important;
+  color: #75758a !important;
+}
+
+/* Toggle (<details>) */
+.dw-prose details {
+  margin: 1em 0 !important;
+  padding: 8px 12px !important;
+  border: 1px solid #d9d9dd !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+}
+.dw-prose details > summary {
+  cursor: pointer !important;
+  font-weight: 500 !important;
+  color: #212121 !important;
+  padding: 4px 0 !important;
+  list-style: none !important;
+}
+.dw-prose details > summary::before {
+  content: '▸' !important;
+  display: inline-block !important;
+  margin-right: 6px !important;
+  font-size: 11px !important;
+  color: #75758a !important;
+  transition: transform 0.15s !important;
+}
+.dw-prose details[open] > summary::before {
+  transform: rotate(90deg) !important;
+}
+.dw-prose details > *:not(summary) {
+  margin-top: 0.5em !important;
+}
+
+/* Print: hide app chrome, show only the rendered doc.
+ * Strategy: rely on @page for margins. Pull the doc content out of the app's
+ * flexbox flow by setting body to block + auto height, hide everything
+ * non-print, then let the print header + prose lay out naturally at the page
+ * edge (which is the @page margin edge, not the viewport edge).
+ */
+@media print {
+  @page {
+    size: Letter;
+    margin: 12mm 14mm;
+  }
+  html, body {
+    background: #ffffff !important;
+    color: #212121 !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body, body * {
+    display: revert !important;
+  }
+  body * {
+    visibility: hidden;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .dw-print-header,
+  .dw-print-header *,
+  .dw-prose,
+  .dw-prose * {
+    visibility: visible !important;
+  }
+  /* The print-only header is normally display:none in screen view; promote it */
+  .dw-print-header {
+    display: block !important;
+    position: static !important;
+    margin: 0 0 12mm 0 !important;
+    padding: 0 0 8mm 0 !important;
+    border-bottom: 1px solid #d9d9dd !important;
+  }
+  .dw-print-header h1 {
+    font-family: 'Space Grotesk', 'CohereText', Inter, system-ui, sans-serif !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.025em !important;
+    color: #212121 !important;
+    font-size: 24pt !important;
+    margin: 0 !important;
+  }
+  /* Pin the prose to the page edge (the @page margin is the page-edge offset) */
+  .dw-prose {
+    position: static !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    font-size: 11pt !important;
+    line-height: 1.55 !important;
+  }
+  .dw-prose pre {
+    background: #f7f7f5 !important;
+    color: #212121 !important;
+    border: 1px solid #d9d9dd !important;
+    page-break-inside: avoid;
+  }
+  .dw-prose pre code,
+  .dw-prose code:not(pre code) {
+    color: #212121 !important;
+    background: #f2f2f2 !important;
+  }
+  .dw-prose .callout {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .dw-prose h1,
+  .dw-prose h2,
+  .dw-prose h3 {
+    page-break-after: avoid;
+  }
+  /* Wrapper around the doc — make it the print container */
+  .dw-prose, .dw-print-header {
+    max-width: none !important;
+  }
+}

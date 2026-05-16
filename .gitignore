@@ -1,0 +1,92 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+.yarn/cache
+.yarn/install-state.gz
+
+# Build output
+dist/
+build/
+out/
+.vite/
+.mf/
+.turbo/
+.next/
+.nuxt/
+.svelte-kit/
+.cache/
+.parcel-cache/
+*.tsbuildinfo
+
+# Environment files — keep .env.example as the template
+.env
+.env.*
+!.env.example
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+logs/
+
+# Editor / IDE
+.vscode/
+.idea/
+.history/
+.fleet/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# AI assistants and local dev tooling — never push to GitHub
+.claude/
+CLAUDE.md
+.cursor/
+.cursorrules
+.windsurf/
+.zed/
+.continue/
+.codeium/
+.aider*
+.gstack/
+
+# Puppeteer local Chromium cache (in case someone overrides the default)
+.local-chromium/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Lint / type caches
+.eslintcache
+.stylelintcache
+
+# Local scratch
+tmp/
+temp/
+*.local
+
+# Personal interview-prep notes — not for public consumption
+docs/faq.md

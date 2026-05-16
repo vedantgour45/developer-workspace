@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background tile in the brand's near-black -->
+  <rect width="32" height="32" rx="7" fill="#181715" />
+  <!-- 4-point brand star in coral, centred on the tile.
+       Same shape language as components/BrandMark.tsx — rebuilt at 32×32
+       so the silhouette stays crisp at 16×16 tab sizes. -->
+  <path
+    d="M16 4.5 18 14l9.5 2-9.5 2L16 27.5 14 18 4.5 16 14 14 16 4.5Z"
+    fill="#ff7759"
+  />
+</svg>

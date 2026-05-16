@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #212121;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'CohereText', Inter, system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+.font-mono {
+  font-family: 'JetBrains Mono', 'CohereMono', ui-monospace, monospace;
+}
+
+*:focus-visible {
+  outline: 2px solid #4c6ee6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Confetti burst when a card is dropped into "Done". Particles start
+ * tiny + invisible at the card centre, pop out to (--dx, --dy) while
+ * rotating, then fade. Total feel is brief and subtle. */
+@keyframes dw-confetti {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(
+        calc(-50% + var(--dx, 0px) * 0.5),
+        calc(-50% + var(--dy, 0px) * 0.5)
+      )
+      scale(1) rotate(calc(var(--rot, 0deg) * 0.5));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+        calc(-50% + var(--dx, 0px)),
+        calc(-50% + var(--dy, 0px) + 6px)
+      )
+      scale(0.6) rotate(var(--rot, 0deg));
+  }
+}
+
+@keyframes dw-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mini-markdown rendering for task descriptions */
+.dw-task-desc :first-child { margin-top: 0; }
+.dw-task-desc :last-child { margin-bottom: 0; }
+.dw-task-desc p { margin: 0 0 0.6em; }
+.dw-task-desc .mini-md-h1,
+.dw-task-desc .mini-md-h2,
+.dw-task-desc .mini-md-h3 {
+  font-family: 'Space Grotesk', 'CohereText', Inter, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #212121;
+  line-height: 1.2;
+}
+.dw-task-desc .mini-md-h1 { font-size: 22px; margin: 0.4em 0 0.4em; }
+.dw-task-desc .mini-md-h2 { font-size: 18px; margin: 0.6em 0 0.3em; }
+.dw-task-desc .mini-md-h3 { font-size: 16px; margin: 0.6em 0 0.3em; }
+.dw-task-desc strong { color: #000000; font-weight: 600; }
+.dw-task-desc em { font-style: italic; }
+.dw-task-desc .mini-md-code {
+  background: #f2f2f2;
+  color: #212121;
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.88em;
+}
+.dw-task-desc .mini-md-pre {
+  background: #17171c;
+  color: #ffffff;
+  padding: 12px 14px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 12.5px;
+  line-height: 1.55;
+  margin: 0.6em 0;
+}
+.dw-task-desc .mini-md-pre code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+.dw-task-desc .mini-md-link {
+  color: #1863dc;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.dw-task-desc .mini-md-quote {
+  border-left: 2px solid #17171c;
+  background: #f7f7f5;
+  margin: 0.6em 0;
+  padding: 6px 12px;
+  color: #212121;
+  border-radius: 0 6px 6px 0;
+}
+.dw-task-desc .mini-md-list {
+  margin: 0 0 0.6em 1.4em;
+  padding: 0;
+}
+.dw-task-desc .mini-md-list li { margin: 0.2em 0; }
